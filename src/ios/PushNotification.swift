@@ -31,7 +31,7 @@ import WindowsAzureMessaging
                     pushSelf.commandDelegate!.send(pluginResult, callbackId: command.callbackId);
                 }
                 else {
-                    let result: [String:String] = ["registrationId":deviceToken,"azureRegId":"$InstallationId:{"+installationId+"}"]
+                    let result: [String:String] = ["registrationId":deviceToken,"azureRegId":installationId]
                     pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: result);
                 }
                 pushSelf.commandDelegate!.send(pluginResult, callbackId: command.callbackId);
@@ -39,7 +39,7 @@ import WindowsAzureMessaging
             }
         }
         else {
-            let result: [String:String] = ["registrationId":deviceToken,"azureRegId":"$InstallationId:{"+installationId+"}"]
+            let result: [String:String] = ["registrationId":deviceToken,"azureRegId":installationId]
             let pluginResult = CDVPluginResult(status: CDVCommandStatus_OK, messageAs: result);
             self.commandDelegate!.send(pluginResult, callbackId: command.callbackId);
         }
